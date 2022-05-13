@@ -12,21 +12,20 @@ public class Usuario {
     private final String email;
     private final String nome;
 
-    @OneToOne(cascade=CascadeType.PERSIST)
-    private final Conta conta;
+    private final String numeroConta;
 
-    public Usuario(Long id, String email, String nome, Conta conta) {
+    public Usuario(Long id, String email, String nome, String numeroConta) {
         this.id = id;
         this.email = email;
         this.nome = nome;
-        this.conta = conta;
+        this.numeroConta = numeroConta;
     }
 
-    public Usuario(String email, String nome, Conta conta) {
+    public Usuario(String email, String nome, String numeroConta) {
+        this.numeroConta = numeroConta;
         this.id = null;
         this.email = email;
         this.nome = nome;
-        this.conta = conta;
     }
 
 

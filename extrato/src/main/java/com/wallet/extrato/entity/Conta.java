@@ -1,4 +1,4 @@
-package com.desafio.wallet.entity;
+package com.wallet.extrato.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,11 +11,13 @@ public class Conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Long id;
+    private Long id;
 
-    private final String numero;
+    private String numero;
 
-    private final BigDecimal saldo;
+    private BigDecimal saldo;
+
+    public Conta(){}
 
     public Conta(long id, String numero, BigDecimal saldo) {
         this.id = id;
@@ -24,19 +26,25 @@ public class Conta {
     }
 
     public Conta(String numero, BigDecimal saldo) {
+        super();
         this.id = null;
         this.numero = numero;
         this.saldo = saldo;
     }
 
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public void setSaldo(BigDecimal saldo) {
+        this.saldo = saldo;
+    }
 
     public BigDecimal getSaldo() {
         return saldo;
     }
 
-    public long getId() {
-        return id;
-    }
+
 
     public String getNumero() {
         return numero;

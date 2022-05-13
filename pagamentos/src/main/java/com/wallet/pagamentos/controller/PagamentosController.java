@@ -22,7 +22,7 @@ public class PagamentosController {
 
     @PostMapping("/pagar")
     public void pagar(@RequestBody PagamentoInput pagamentoInput){
-
+        pagamentosService.realizarPagamento(pagamentoInput.toPagamentoDTO());
     }
 
 }

@@ -1,12 +1,12 @@
 package com.desafio.wallet.facade;
 
-import com.desafio.wallet.entity.Conta;
 import com.desafio.wallet.entity.Usuario;
 
 public class UsuarioInput {
 
     private String nome;
     private String email;
+
 
 
     public String getNome() {
@@ -26,8 +26,8 @@ public class UsuarioInput {
     }
 
 
-    public Usuario toUsuarioEntity(Conta conta){
+    public Usuario toUsuarioEntity(String numeroConta){
 
-        return new Usuario(email, nome, conta);
+        return new Usuario(email, nome, numeroConta);
     }
 }

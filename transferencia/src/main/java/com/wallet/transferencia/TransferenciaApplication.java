@@ -1,15 +1,12 @@
-package com.desafio.wallet;
+package com.wallet.transferencia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.client.RestTemplate;
 
-@EnableJpaRepositories
 @SpringBootApplication
-public class WalletApplication {
+public class TransferenciaApplication {
 
 	@Bean
 	public RestTemplate buildRestTemplate(){
@@ -17,9 +14,7 @@ public class WalletApplication {
 	}
 
 	public static void main(String[] args) {
-
-		SpringApplication.run(WalletApplication.class, args);
-		System.out.println("Cadastro iniciado");
+		SpringApplication.run(TransferenciaApplication.class, args);
 	}
 
 }

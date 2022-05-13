@@ -1,10 +1,10 @@
-package com.wallet.extrato;
+package com.wallet.transferencia;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExtratoApplicationTests {
+class TransferenciaApplicationTests {
 
 	@Test
 	void contextLoads() {
