@@ -1,10 +1,11 @@
 package com.wallet.pagamentos.facade;
 
-import com.wallet.pagamentos.dto.PagamentoDTO;
+import dto.PagamentoDTO;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class PagamentoInput {
+public class PagamentoInput implements Serializable {
 
     private final String codigoBarras;
     private final BigDecimal valor;

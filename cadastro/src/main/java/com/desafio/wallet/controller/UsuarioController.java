@@ -1,6 +1,7 @@
 package com.desafio.wallet.controller;
 
 import com.desafio.wallet.dto.ContaDTO;
+import com.desafio.wallet.entity.Usuario;
 import com.desafio.wallet.facade.UsuarioInput;
 import com.desafio.wallet.helper.ResponseHelper;
 import com.desafio.wallet.service.UsuarioService;
@@ -32,8 +33,8 @@ public class UsuarioController {
     public ResponseEntity cadastrar(@RequestBody UsuarioInput usuario){
         Random rand = new Random();
         String numeroConta = String.format("%04d", rand.nextInt(10000));
-        usuarioService.cadastrar(usuario.toUsuarioEntity(numeroConta));
+        Usuario usuarioEntity = usuarioService.cadastrar(usuario.toUsuarioEntity(numeroConta));
         usuarioService.criarConta(new ContaDTO(numeroConta));
-        return ResponseHelper.Created(MENSAGEM_SUCESSO_CADASTRO);
+        return ResponseHelper.Created(MENSAGEM_SUCESSO_CADASTRO + "conta gerada " + numeroConta);
     }
 }

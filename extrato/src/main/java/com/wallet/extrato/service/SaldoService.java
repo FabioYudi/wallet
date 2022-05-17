@@ -3,9 +3,11 @@ package com.wallet.extrato.service;
 import com.wallet.extrato.entity.Conta;
 import com.wallet.extrato.entity.Transacao;
 import com.wallet.extrato.facade.SaldoOutPut;
+import com.wallet.extrato.helper.ResponseHelper;
 import com.wallet.extrato.repository.ContaRepository;
 import com.wallet.extrato.repository.SaldoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -23,9 +25,12 @@ public class SaldoService {
         this.contaRepository = contaRepository;
     }
 
-    public SaldoOutPut consultarSaldo(String numeroConta) {
+    public ResponseEntity consultarSaldo(String numeroConta) {
         Conta conta = contaRepository.findByNumero(numeroConta);
-        return new SaldoOutPut(conta.getSaldo(), conta.getNumero());
+        if(conta == null){
+            return ResponseHelper.NotFound("Conta não econtrada");
+        }
+        return ResponseHelper.Success(new SaldoOutPut(conta.getSaldo(), conta.getNumero()));
     }
 
     public void debitar(BigDecimal valor, String numeroConta) {

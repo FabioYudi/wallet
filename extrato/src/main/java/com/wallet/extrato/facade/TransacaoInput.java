@@ -3,13 +3,16 @@ package com.wallet.extrato.facade;
 import com.wallet.extrato.entity.Transacao;
 import com.wallet.extrato.enums.TipoTransacao;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TransacaoInput {
-    private final String descricao;
-    private final BigDecimal valor;
-    private final String numeroConta;
+public class TransacaoInput implements Serializable {
+    private  String descricao;
+    private  BigDecimal valor;
+    private  String numeroConta;
+
+    public TransacaoInput(){}
 
     public TransacaoInput(String descricao, BigDecimal valor, String numeroConta) {
         this.descricao = descricao;

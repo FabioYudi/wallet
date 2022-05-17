@@ -1,13 +1,16 @@
-package com.wallet.pagamentos.dto;
+package dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class PagamentoDTO {
+public class PagamentoDTO implements Serializable {
 
-    private final String codigoBarras;
-    private final BigDecimal valor;
-    private final String descricao;
-    private final String numeroConta;
+    private String codigoBarras;
+    private BigDecimal valor;
+    private String descricao;
+    private String numeroConta;
+
+    public PagamentoDTO(){}
 
     public PagamentoDTO(String codigoBarras, BigDecimal valor, String descricao, String numeroConta) {
         this.codigoBarras = codigoBarras;

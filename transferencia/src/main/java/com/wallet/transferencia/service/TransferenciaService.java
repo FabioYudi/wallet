@@ -2,6 +2,7 @@ package com.wallet.transferencia.service;
 
 import com.wallet.transferencia.dto.TransacaoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,9 +22,9 @@ public class TransferenciaService {
 
     }
 
-    public void realizarDebitoTransferencia(TransacaoDTO transferenciaDTO){
+    public ResponseEntity realizarDebitoTransferencia(TransacaoDTO transferenciaDTO){
 
-        client.postForEntity("http://localhost:8082/transacao/debitar", transferenciaDTO, String.class);
+        return client.postForEntity("http://localhost:8082/transacao/debitar", transferenciaDTO, null);
 
     }
 }

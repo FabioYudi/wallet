@@ -23,13 +23,13 @@ public class UsuarioService {
         this.client = client;
     }
 
-    public void cadastrar(Usuario usuarioEntity){
+    public Usuario  cadastrar(Usuario usuarioEntity){
 
-        usuarioRepository.save(usuarioEntity);
+        return usuarioRepository.save(usuarioEntity);
     }
 
-    public void criarConta(ContaDTO contaDTO){
-       client.postForEntity("http://localhost:8082/extrato/criarConta", contaDTO, String.class);
+    public ResponseEntity criarConta(ContaDTO contaDTO){
+       return client.postForEntity("http://localhost:8082/extrato/criarConta", contaDTO, null);
     }
 
 

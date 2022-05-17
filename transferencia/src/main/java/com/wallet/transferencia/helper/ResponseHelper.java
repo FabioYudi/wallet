@@ -1,4 +1,5 @@
-package com.wallet.extrato.helper;
+package com.wallet.transferencia.helper;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

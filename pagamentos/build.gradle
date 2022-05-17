@@ -9,11 +9,15 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit
+	implementation 'org.springframework.amqp:spring-rabbit:2.4.4'
+	implementation 'org.librabbitmq:librabbitmq:1.0-SNAPSHOT'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

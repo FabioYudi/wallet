@@ -1,0 +1,13 @@
+FROM openjdk:11-jdk-slim AS builder
+
+WORKDIR /tmp
+COPY . .
+RUN ./gradlew clean jar --info
+
+
+FROM openjdk:11-jre-slim
+WORKDIR /deploy
+COPY --from=builder /tmp/build/libs/wallet.jar .
+
+ENTRYPOINT [ "java", "-jar", "wallet.jar" ]
+EXPOSE 8080

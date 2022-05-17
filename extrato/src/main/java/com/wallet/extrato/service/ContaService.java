@@ -13,7 +13,7 @@ public class ContaService {
         this.contaRepository = contaRepository;
     }
 
-    public void criarConta(Conta conta){
-        contaRepository.save(conta);
+    public Conta criarConta(Conta conta){
+       return contaRepository.save(conta);
     }
 }

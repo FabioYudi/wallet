@@ -1,5 +1,6 @@
 package com.wallet.pagamentos.controller;
 
+import com.wallet.pagamentos.constantes.RabbitMqConstantes;
 import com.wallet.pagamentos.facade.PagamentoInput;
 import com.wallet.pagamentos.service.PagamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class PagamentosController {
 
     @PostMapping("/pagar")
     public void pagar(@RequestBody PagamentoInput pagamentoInput){
-        pagamentosService.realizarPagamento(pagamentoInput.toPagamentoDTO());
+        pagamentosService.enviarPagamento(RabbitMqConstantes.FILA_PAGAMENTO, pagamentoInput.toPagamentoDTO());
     }
 
 }

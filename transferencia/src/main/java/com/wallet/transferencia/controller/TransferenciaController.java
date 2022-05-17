@@ -1,8 +1,10 @@
 package com.wallet.transferencia.controller;
 
 import com.wallet.transferencia.facade.TransferenciaInput;
+import com.wallet.transferencia.helper.ResponseHelper;
 import com.wallet.transferencia.service.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,7 @@ public class TransferenciaController {
     }
 
     @PostMapping("/transferir")
-    public void transferir(@RequestBody TransferenciaInput transferenciaInput){
+    public ResponseEntity transferir(@RequestBody TransferenciaInput transferenciaInput){
         String descricaoDestino = "Transferencia recebida de: " + transferenciaInput.getNumeroContaOrigem();
         transferenciaService.realizarCreditoTransferencia(transferenciaInput.toTransacaoDTO(descricaoDestino,
                 transferenciaInput.getNumeroContaDestino()));
@@ -30,7 +32,7 @@ public class TransferenciaController {
                 transferenciaInput.getNumeroContaOrigem()));
 
 
-
+        return ResponseHelper.Success();
 
     }
 }
