@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "055cb8cb-abba-4bde-9ca5-16e6fd890a1a",
+		"name": "Wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste fabio 2\",\r\n    \"email\": \"fabio\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuario/cadastrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar saldo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/extrato/saldo?numeroConta=5317",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"extrato",
+						"saldo"
+					],
+					"query": [
+						{
+							"key": "numeroConta",
+							"value": "5317"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "debitar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descricao\": \"teste\",\r\n    \"valor\": 10,\r\n    \"numeroConta\": \"5317\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/transacao/debitar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"transacao",
+						"debitar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creditar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descricao\": \"teste\",\r\n    \"valor\": 100.50,\r\n    \"numeroConta\": \"5317\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/transacao/creditar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"transacao",
+						"creditar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pagar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigoBarras\": \"123\",\r\n    \"valor\": 10.0,\r\n    \"descricao\": \"novo pagamento\",\r\n    \"numeroConta\": \"5317\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/pagamentos/pagar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pagamentos",
+						"pagar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroContaDestino\": \"7138\",\r\n    \"numeroContaOrigem\":\"5317\",\r\n    \"valor\": 5.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/transferencia/transferir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"transferencia",
+						"transferir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "extrato",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/extrato/movimentacao?numeroConta=5317",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"extrato",
+						"movimentacao"
+					],
+					"query": [
+						{
+							"key": "numeroConta",
+							"value": "5317"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "criar conta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroConta\": \"123\",\r\n    \"saldo\": 0.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/extrato/criarConta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"extrato",
+						"criarConta"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
