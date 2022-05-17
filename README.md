@@ -4,6 +4,7 @@
 ## Instalação
 
 Clonar o projeto, importar e configurar a JDK 11 na IDE de preferência
+Rodar o maven install no projeto librabbitmq
 
 
 ## Endpoints
